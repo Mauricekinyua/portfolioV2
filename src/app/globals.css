@@ -9,7 +9,7 @@
   --color-dark: #151414;
   --color-light: #d9d9d9;
   --color-gray: #ffffff4d;
-  --color-gradient: #66666680;
+  --color-gradient: #66766686;
 
 }
 
@@ -155,7 +155,14 @@ body {
     @apply flex fixed z-50 m-5 flex-center;
   }
   .hero_section{
-    @apply flex flex-center min-h-screen mt-5 md:mt-10 w-full;
+    @apply flex z-10 flex-center min-h-dvh mt-5 md:mt-10 w-full items-center;
+  }
+
+  .about_heading{
+    @apply flex-center font-bold text-6xl;
+  }
+  .about_content{
+    @apply lg:grid lg:grid-cols-2 flex flex-col-reverse gap-3 w-full;
   }
 }
 

@@ -21,4 +21,15 @@ export const navLinks = [
     },
 
 ];
-export const projects =[]
+export const projects =[
+    {
+        image: '/images/resumaai.png',
+        title: 'Resumaai',
+        url: '',
+    },
+    {
+    image: '/images/mojito.png',
+     title: 'Mojito',
+     url:''
+    }
+]

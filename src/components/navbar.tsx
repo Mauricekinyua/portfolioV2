@@ -1,35 +1,46 @@
 'use client'
-import React from 'react';
+import React, {useState} from 'react';
 import {navLinks} from "../../constants";
 import Image from "next/image";
 import {useGSAP} from "@gsap/react";
-import gsap from "gsap";
+import gsap from "gsap/dist/gsap";
 
 const NavBar = () => {
+    const [active, setActive] = useState("hero")
 
     useGSAP(()=>{
         const navTween = gsap.timeline({
             scrollTrigger:{
-                trigger: 'nav',
+                trigger: '#navv',
                 start: 'bottom top'
             }
         });
-        navTween.fromTo('nav',{background: 'transparent'},
+        navTween.fromTo('#navv',{background: 'transparent'},
             {
-                backgroundColor: '#242424',
+                backgroundColor: '#66766686;',
                 duration: 1,
-                ease: 'power1.out',
+                ease: 'expo.inOut',
                 backgroundFilter: 'blur(10px)',
             })
     })
     return (
-        <nav className='w-full flex justify-center'>
-            <div className='port_nav bg-gradient p-4 rounded-2xl gap-8 md:gap-9'>
+        <nav id="navv" className='w-full flex justify-center'>
+            <div  id='nav' className='port_nav bg-gradient rounded-2xl gap-6 md:gap-9'>
             {navLinks.map((link,index)=>(
-                <div key={index} className='flex-row flex-center gap-2 cursor-pointer'>
-                    <Image src={link.image} alt={link.title} height={25} width={25}/>
-                    <a href={`#${link.id}`} className='max-sm:hidden text-1xl'>{link.title}</a>
-                </div>
+
+                    <div key={index} className=' cursor-pointer'>
+                        <button onClick={()=> setActive(link.id)} className={`md:px-3 flex flex-center rounded-lg duration-200 
+                        ${active===link.id ?'bg-foreground hover:bg-gradient':'hover:bg-gray'}`}>
+                            <div className='flex-center p-4 gap-2'>
+                                <Image src={link.image} alt={link.title} height={25} width={25} unoptimized={true}/>
+                                <a href={`#${link.id}`} className={`max-sm:hidden text-1xl 
+                                ${active===link.id ? 'text-black' : 'text-white'}`}>{link.title}</a>
+                            </div>
+
+                        </button>
+                    </div>
+
+
             ))}
         </div>
         </nav>
