@@ -1,5 +1,6 @@
 import React from 'react';
 import {motion, Variants} from 'framer-motion';
+import {useInView} from 'react-intersection-observer';
 
 const containerVariants: Variants = {
     hidden: {opacity: 0},
@@ -8,6 +9,7 @@ const containerVariants: Variants = {
         transition:{
             staggerChildren: 0.2,
         },
+
     },
 };
 
@@ -17,15 +19,17 @@ const letterVariants:Variants={
 }
 
 const Staggerword = ({word}:{word:string}) => {
+    const {ref, inView} = useInView({triggerOnce: true, threshold: 0.5});
     return (
         <h1
         className='about_heading'
         >
         <motion.div
+            ref={ref}
         variants={containerVariants}
         initial="hidden"
-        animate="visible"
-        transition={{duration: 0.5,delay:0.1,ease:'easeInOut'}}
+        animate={inView ? 'visible' : 'hidden'}
+        transition={{duration: 0.8,delay:0.4,ease:'easeInOut'}}
         style={{display: 'inline-block'}}
         >
             {word.split("").map((char, index)=>(
