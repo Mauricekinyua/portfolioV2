@@ -1,3 +1,11 @@
+export type Project = {
+    id: number;
+    title: string;
+    description: string;
+    link: string;
+    image: string;
+};
+
 export const navLinks = [
     {
         id: "Home",
@@ -21,15 +29,27 @@ export const navLinks = [
     },
 
 ];
-export const projects =[
+export const projects:Project[] =[
     {
-        image: '/images/resumaai.png',
-        title: 'Resumaai',
-        url: '',
+        id: 1,
+        image: "/images/resumaai.png",
+        title: "Resumaai",
+        link: "somthing",
+        description: "using ai to do your shit btw",
     },
     {
-    image: '/images/mojito.png',
+        id:2,
+    image: '/images/aab.png',
      title: 'Mojito',
-     url:''
+     link:'something',
+        description: "Somthing about something and somethuiing"
+
+    },
+    {
+        id:3,
+        image: '/images/mojito.png',
+        title: "Learn",
+        description: "Somthing about Something",
+        link: "Scc",
     }
 ]

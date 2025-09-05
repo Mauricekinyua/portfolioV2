@@ -1,21 +1,29 @@
 import React from 'react';
-import {projects} from "../../constants";
 import Image from "next/image";
-
-const ProjectCards = () => {
+import Link from "next/link";
+type ProjectCardsProps = {
+    title: string;
+    description: string;
+    link: string;
+    image: string;
+}
+const ProjectCards:React.FC<ProjectCardsProps> = ({title,description,link,image}) => {
     return (
-        <div>
-            {projects.map((project,index)=>(
-                <div key={index}>
-                    <Image
-                        src={project.image}
-                        alt={project.title}
-                        width={200}
-                        height={300}
-                    />
+        <Link href={link} passHref>
+            <div className='relative h-98 md:h-111 rounded-2xl overflow-hidden shadow-lg
+                cursor-pointer group max-w-md w-full mx-auto'>
+                <Image
+                    src={image}
+                    alt={title}
+                    fill
+                className='object-cover group-hover:scale-105 transition-transform duration-500'
+                    sizes='(max-width: 768px) 100vw, 50vw'
+                />
+                <div className="">
+
                 </div>
-            ))}
-        </div>
+            </div>
+        </Link>
     );
 };
 

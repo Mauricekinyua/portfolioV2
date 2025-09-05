@@ -162,7 +162,7 @@ body {
     @apply flex-center font-bold text-6xl;
   }
   .about_content{
-    @apply lg:grid lg:grid-cols-2 flex flex-col-reverse gap-3 w-full;
+    @apply lg:grid lg:grid-cols-2 flex flex-col-reverse gap-3 max-w-4xl;
   }
 }
 
