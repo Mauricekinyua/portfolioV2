@@ -29,7 +29,7 @@ const Staggerword = ({word}:{word:string}) => {
         variants={containerVariants}
         initial="hidden"
         animate={inView ? 'visible' : 'hidden'}
-        transition={{duration: 0.9,delay:0.6,ease:'easeInOut'}}
+        transition={{duration: 0.9,delay: 0, ease:'easeInOut'}}
         style={{display: 'inline-block'}}
         >
             {word.split("").map((char, index)=>(

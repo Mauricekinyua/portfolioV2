@@ -159,7 +159,7 @@ body {
   }
 
   .about_heading{
-    @apply flex-center font-bold text-6xl;
+    @apply flex-center font-bold text-6xl p-4 m-4;
   }
   .about_content{
     @apply lg:grid lg:grid-cols-2 flex flex-col-reverse gap-3 max-w-4xl;
